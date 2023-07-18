@@ -1,4 +1,5 @@
 package com.example.backEnd.ToDoTask;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -9,23 +10,27 @@ import lombok.Data;
 @Table
 public class ToDo {
     @Id
+    @Column(name="id")
     private Long id;
+    @Column(name="iscompleted")
+    private boolean isCOmpleted;
+    @Column(name="taskname")
     private String taskName;
 
     public ToDo() {
     }
 
-    public ToDo(Long id, String taskName) {
-        this.id = id;
+    public ToDo(boolean isCOmpleted, String taskName) {
+        this.isCOmpleted = isCOmpleted;
         this.taskName = taskName;
     }
 
-    public Long getId() {
-        return id;
+    public boolean isCOmpleted() {
+        return isCOmpleted;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCOmpleted(boolean COmpleted) {
+        isCOmpleted = COmpleted;
     }
 
     public String getTaskName() {
@@ -39,7 +44,7 @@ public class ToDo {
     @Override
     public String toString() {
         return "ToDo{" +
-                "id=" + id +
+                "isCOmpleted=" + isCOmpleted +
                 ", taskName='" + taskName + '\'' +
                 '}';
     }
